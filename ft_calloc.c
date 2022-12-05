@@ -6,12 +6,11 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 14:41:53 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/05 17:38:10 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/05 22:04:38 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
 
 void	*ft_memset(void *b, int c, size_t len)
 {
@@ -38,10 +37,9 @@ void	*ft_calloc(size_t count, size_t size)
 	return (str_alloc);
 }
 
-
-void tab_free(char **tab)
+void	tab_free(char **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])

@@ -6,10 +6,9 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:48:43 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/04 17:51:26 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/05 22:04:29 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "pipex.h"
 
@@ -81,7 +80,7 @@ char	**ft_split(char const *s, char c)
 	size_t	x;
 
 	i = 0;
-	final_str = calloc(sizeof(char *) , calc_element(s, c, &x, &j) + 1);
+	final_str = calloc(sizeof(char *), calc_element(s, c, &x, &j) + 1);
 	if (!final_str || !s)
 		return (0);
 	get_next_str(s, c, &i, &j);

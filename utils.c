@@ -6,15 +6,15 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:31:23 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/05 18:50:58 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/05 22:01:41 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pipex.h"
 
-size_t ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!str)
@@ -24,9 +24,9 @@ size_t ft_strlen(const char *str)
 	return (i);
 }
 
-void ft_strcpy(char *dest, char *src)
+void	ft_strcpy(char *dest, char *src)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!src)
@@ -39,10 +39,10 @@ void ft_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 }
 
-void ft_strcat(char *s1, char *s2)
+void	ft_strcat(char *s1, char *s2)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -57,9 +57,9 @@ void ft_strcat(char *s1, char *s2)
 	s1[j] = '\0';
 }
 
-char *ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	char *final_str;
+	char	*final_str;
 
 	final_str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
 	if (!final_str)
@@ -71,9 +71,9 @@ char *ft_strjoin(char *s1, char *s2)
 	return (final_str);
 }
 
-void ft_swap(char **s1, char **s2)
+void	ft_swap(char **s1, char **s2)
 {
-	char *temp;
+	char	*temp;
 
 	temp = *s1;
 	*s1 = *s2;

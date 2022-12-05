@@ -6,16 +6,16 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:37:20 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/05 21:51:56 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/05 22:03:30 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int main (int argc, char **argv, char **env)
+int	main(int argc, char **argv, char **env)
 {
-	t_pipex pipex;
-	int id1;
+	t_pipex	pipex;
+	int		id1;
 
 	if (argc != 5)
 		return (0);

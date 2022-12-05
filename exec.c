@@ -6,15 +6,15 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 00:08:36 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/05 21:54:24 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/05 21:59:21 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int ft_strncmp(char *s1, char *s2, int len)
+int	ft_strncmp(char *s1, char *s2, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while ((s1[i] || s2[i]) && i < len)
@@ -27,9 +27,9 @@ int ft_strncmp(char *s1, char *s2, int len)
 	return (0);
 }
 
-int get_start(char *str)
+int	get_start(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -41,10 +41,10 @@ int get_start(char *str)
 	return (0);
 }
 
-char *get_paths(char **tab)
+char	*get_paths(char **tab)
 {
-	int i;
-	char *str;
+	int		i;
+	char	*str;
 
 	i = 0;
 	while (tab[i])
@@ -59,9 +59,9 @@ char *get_paths(char **tab)
 	return (0);
 }
 
-void ft_exec(char *cmd, char **env)
+void	ft_exec(char *cmd, char **env)
 {
-	t_exec_utils exec;
+	t_exec_utils	exec;
 
 	exec.i = 0;
 	exec.cmd_arg = ft_split(cmd, ' ');

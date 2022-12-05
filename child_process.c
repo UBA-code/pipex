@@ -6,16 +6,16 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 22:19:18 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/05 20:26:07 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/05 21:58:32 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./pipex.h"
 
-void child_process(t_pipex pipex)
+void	child_process(t_pipex pipex)
 {
-	int fd;
-	char **cmd;
+	int		fd;
+	char	**cmd;
 
 	cmd = ft_split(pipex.cmd1, ' ');
 	fd = open(pipex.file1, O_RDONLY);
