@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 18:56:55 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/06 15:07:44 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/06 23:07:38 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,9 @@ int	check_files(char *file1, char *file2)
 	return (1);
 }
 
-
-int check_args(char **args)
+int	check_args(char **args)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (args[i])
@@ -58,7 +57,7 @@ int check_args(char **args)
 
 int	ft_print_error(char *msg)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (msg[i])

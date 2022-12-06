@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:31:23 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/05 22:01:41 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/06 23:06:39 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,15 @@ void	ft_strcat(char *s1, char *s2)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*final_str;
+	int		len;
 
 	final_str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
 	if (!final_str)
 		return (0);
 	ft_strcpy(final_str, s1);
-	final_str[ft_strlen(final_str)] = '/';
-	final_str[ft_strlen(final_str) + 1] = '\0';
+	len = ft_strlen(final_str);
+	final_str[len] = '/';
+	final_str[len + 1] = '\0';
 	ft_strcat(final_str, s2);
 	return (final_str);
 }
