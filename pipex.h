@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:37:51 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/05 22:03:09 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:07:50 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <sys/wait.h>
+# include <stdint.h>
 
 typedef struct s_pipex
 {
@@ -53,5 +54,8 @@ void	tab_free(char **tab);
 int		check_Read_file(char *file);
 int		check_Write_file(char *file);
 int		check_files(char *file1, char *file2);
+int check_args(char **args);
+int	error_file(char *file);
+int	ft_print_error(char *msg);
 
 #endif

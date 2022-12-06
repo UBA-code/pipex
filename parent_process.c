@@ -15,10 +15,8 @@
 void	parent_process(t_pipex pipex)
 {
 	int		fd;
-	char	**cmd;
 
 	fd = open(pipex.file2, O_WRONLY);
-	cmd = ft_split(pipex.cmd2, ' ');
 	dup2(fd, STDOUT_FILENO);
 	dup2(pipex.fd[0], STDIN_FILENO);
 	close(pipex.fd[1]);
