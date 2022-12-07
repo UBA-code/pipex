@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 17:05:40 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/05 21:58:20 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:03:57 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	parent_process(t_pipex pipex)
 {
 	int		fd;
 
-	fd = open(pipex.file2, O_WRONLY);
+	fd = open(pipex.file2, O_WRONLY | O_TRUNC);
 	dup2(fd, STDOUT_FILENO);
 	dup2(pipex.fd[0], STDIN_FILENO);
 	close(pipex.fd[1]);
