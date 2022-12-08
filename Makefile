@@ -9,7 +9,7 @@ NAME = pipex
 
 all: $(NAME)
 
-bonus : $(OBG_BONUS)
+bonus: $(OBG_BONUS)
 	$(CC) $(CFLAGS) $(OBG_BONUS) -o $(NAME)
 
 $(NAME): $(OBG)
