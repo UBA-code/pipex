@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:37:51 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/06 23:07:52 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/08 17:32:31 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_pipex
 	char	**env;
 	char	*file1;
 	char	*file2;
+	int		counter;
 }	t_pipex;
 
 typedef struct s_exec_utils
@@ -57,5 +58,6 @@ int		check_files(char *file1, char *file2);
 int		check_args(char **args);
 int		error_file(char *file);
 int		ft_print_error(char *msg);
+void	init_struct(t_pipex *pipex, char **argv, char **env, int argc);
 
 #endif
