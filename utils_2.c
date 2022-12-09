@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 18:56:55 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/09 03:01:36 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:04:09 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	check_files_exists(char *file1, char *file2)
 	fd1 = open(file1, O_RDONLY);
 	if (fd1 == -1)
 		return (error_file(file1));
+	close(fd1);
 	fd2 = open(file2, O_WRONLY | O_CREAT, 0777);
 	if (fd2 == -1)
 		return (error_file(file2));
-	close(fd1);
 	close(fd2);
 	return (1);
 }
@@ -65,5 +65,5 @@ int	ft_print_error(char *msg)
 		write(2, &msg[i], 1);
 		i++;
 	}
-	return (0);
+	return (1);
 }

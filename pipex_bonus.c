@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:57:04 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/09 03:54:59 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:42:28 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	pipex_bonus_here_doc(t_pipex pipex, int argc, char **argv)
 
 	pipex.cmd1 = argv[3];
 	fd = open(pipex.file2, O_WRONLY | O_CREAT);
-	if (fd == -1)
+	if (argc <= 5 || fd == -1)
 		exit(1);
 	close(fd);
 	here_doc(pipex, argv[2]);
@@ -99,8 +99,8 @@ int	main(int argc, char **argv, char **env)
 {
 	t_pipex	pipex;
 
-	if (!check_args(argv))
-		return (ft_print_error("Please Check Arguments\n"));
+	if (argc < 5 || !check_args(argv))
+		exit(ft_print_error("Please Check Arguments\n"));
 	init_struct(&pipex, argv, env, argc);
 	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
 		pipex_bonus_here_doc(pipex, argc, argv);
