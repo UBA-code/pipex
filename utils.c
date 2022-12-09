@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 18:31:23 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/06 23:06:39 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/09 02:39:34 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,6 @@ size_t	ft_strlen(const char *str)
 	while (str[i])
 		i++;
 	return (i);
-}
-
-void	ft_strcpy(char *dest, char *src)
-{
-	int	i;
-
-	i = 0;
-	if (!src)
-		return ;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
 }
 
 void	ft_strcat(char *s1, char *s2)
@@ -57,7 +42,7 @@ void	ft_strcat(char *s1, char *s2)
 	s1[j] = '\0';
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_pipex(char *s1, char *s2)
 {
 	char	*final_str;
 	int		len;
@@ -65,7 +50,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	final_str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
 	if (!final_str)
 		return (0);
-	ft_strcpy(final_str, s1);
+	ft_strcat(final_str, s1);
 	len = ft_strlen(final_str);
 	final_str[len] = '/';
 	final_str[len + 1] = '\0';

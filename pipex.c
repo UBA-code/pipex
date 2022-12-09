@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:37:20 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/08 18:27:26 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/08 18:45:58 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv, char **env)
 	pipex.cmd2 = argv[3];
 	id1 = fork();
 	if (id1 == -1)
-		reeturn (perror("fork failed"));
+		return (error_file("failed to fork"));
 	if (id1 == 0)
 		child_process(pipex);
 	else

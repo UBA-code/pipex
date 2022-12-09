@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 00:08:36 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/08 16:56:15 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/08 22:56:10 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,12 @@ void	ft_exec(char *cmd, char **env)
 
 	exec.i = 0;
 	exec.cmd_arg = ft_split(cmd, ' ');
+	execve(exec.cmd_arg[0], exec.cmd_arg, env);
 	exec.paths_line = get_paths(env);
 	exec.paths = ft_split(exec.paths_line, ':');
 	while (exec.paths[exec.i])
 	{
-		exec.main_cmd = ft_strjoin(exec.paths[exec.i], exec.cmd_arg[0]);
+		exec.main_cmd = ft_strjoin_pipex(exec.paths[exec.i], exec.cmd_arg[0]);
 		execve(exec.main_cmd, exec.cmd_arg, env);
 		free(exec.main_cmd);
 		exec.i++;
