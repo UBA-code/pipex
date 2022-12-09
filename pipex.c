@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:37:20 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/08 18:45:58 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/09 03:29:39 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int	main(int argc, char **argv, char **env)
 	int		id1;
 
 	if (argc != 5 || !check_args(argv))
-		return (ft_print_error("Please Check Arguments\n"));
+		exit(!ft_print_error("Please Check Arguments\n"));
 	if (!check_files(argv[1], argv[4]))
-		return (0);
+		exit(1);
 	if (pipe(pipex.fd) == -1)
-		return (0);
+		exit(!ft_print_error("failed to pipe\n"));
 	pipex.env = env;
 	pipex.file1 = argv[1];
 	pipex.file2 = argv[4];
@@ -39,7 +39,7 @@ int	main(int argc, char **argv, char **env)
 	pipex.cmd2 = argv[3];
 	id1 = fork();
 	if (id1 == -1)
-		return (error_file("failed to fork"));
+		exit(!ft_print_error("failed to fork\n"));
 	if (id1 == 0)
 		child_process(pipex);
 	else

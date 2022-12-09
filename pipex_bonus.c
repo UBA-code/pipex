@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:57:04 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/09 02:40:36 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/09 03:44:31 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int	pipex_bonus(t_pipex pipex, int argc, char **argv)
 	while (pipex.counter < argc - 2)
 	{
 		if (pipe(pipex.fd) == -1)
-			return (0);
+			exit(1);
 		id1 = fork();
 		if (id1 == -1)
-			return (0);
+			exit(1);
 		if (id1 == 0)
 			child_process(pipex);
 		pipex.counter++;
@@ -65,7 +65,8 @@ void	here_doc(t_pipex pipex, char *limiter)
 		loop_and_exit(limit);
 	dup2(pipex.fd[0], STDIN_FILENO);
 	close(pipex.fd[1]);
-	wait(NULL);
+	wait(0);
+	free(limit);
 }
 
 int	pipex_bonus_here_doc(t_pipex pipex, int argc, char **argv)
@@ -82,10 +83,10 @@ int	pipex_bonus_here_doc(t_pipex pipex, int argc, char **argv)
 	while (pipex.counter + 1 < argc - 2)
 	{
 		if (pipe(pipex.fd) == -1)
-			return (0);
+			exit(1);
 		id1 = fork();
 		if (id1 == -1)
-			return (0);
+			exit(1);
 		if (id1 == 0)
 			child_process_doc(pipex);
 		pipex.counter++;
@@ -107,5 +108,5 @@ int	main(int argc, char **argv, char **env)
 	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
 		pipex_bonus_here_doc(pipex, argc, argv);
 	else if (!pipex_bonus(pipex, argc, argv))
-		return (error_file("error"));
+		exit(1);
 }
