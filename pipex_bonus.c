@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:57:04 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/09 15:42:28 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/09 17:00:05 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	pipex_bonus(t_pipex pipex, int argc, char **argv)
 	if (!check_files(argv[1], argv[argc - 1]))
 		exit(1);
 	fd = open(pipex.file1, O_RDONLY);
+	if (fd == -1)
+		exit(0);
 	dup2(fd, STDIN_FILENO);
 	while (pipex.counter < argc - 2)
 	{
@@ -66,7 +68,7 @@ void	here_doc(t_pipex pipex, char *limiter)
 	wait(0);
 }
 
-int	pipex_bonus_here_doc(t_pipex pipex, int argc, char **argv)
+void	pipex_bonus_here_doc(t_pipex pipex, int argc, char **argv)
 {
 	int	id1;
 	int	fd;
@@ -92,7 +94,6 @@ int	pipex_bonus_here_doc(t_pipex pipex, int argc, char **argv)
 		close(pipex.fd[1]);
 	}
 	parent_process_doc(pipex);
-	return (1);
 }
 
 int	main(int argc, char **argv, char **env)
@@ -104,6 +105,6 @@ int	main(int argc, char **argv, char **env)
 	init_struct(&pipex, argv, env, argc);
 	if (ft_strncmp(argv[1], "here_doc", 8) == 0)
 		pipex_bonus_here_doc(pipex, argc, argv);
-	else if (!pipex_bonus(pipex, argc, argv))
-		exit(1);
+	else
+		pipex_bonus(pipex, argc, argv);
 }
