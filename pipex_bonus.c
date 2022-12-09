@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:57:04 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/09 03:44:31 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/09 03:54:59 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,7 @@ int	pipex_bonus(t_pipex pipex, int argc, char **argv)
 void	here_doc(t_pipex pipex, char *limiter)
 {
 	int		id;
-	char	*limit;
 
-	limit = ft_strjoin_simple(limiter, "\n");
 	if (pipe(pipex.fd) == -1)
 		exit(1);
 	dup2(pipex.fd[1], STDOUT_FILENO);
@@ -62,11 +60,10 @@ void	here_doc(t_pipex pipex, char *limiter)
 	if (id == -1)
 		exit(1);
 	if (id == 0)
-		loop_and_exit(limit);
+		loop_and_exit(ft_strjoin_simple(limiter, "\n"));
 	dup2(pipex.fd[0], STDIN_FILENO);
 	close(pipex.fd[1]);
 	wait(0);
-	free(limit);
 }
 
 int	pipex_bonus_here_doc(t_pipex pipex, int argc, char **argv)
