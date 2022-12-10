@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 00:08:36 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/09 03:47:42 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:01:03 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,11 @@ void	ft_exec(char *cmd, char **env)
 		free(exec.main_cmd);
 		exec.i++;
 	}
-	perror(exec.cmd_arg[0]);
+	ft_error("command not found: ");
+	ft_error(cmd);
+	ft_error("\n");
 	tab_free(exec.paths);
 	tab_free(exec.cmd_arg);
 	free(exec.paths_line);
+	exit(1);
 }

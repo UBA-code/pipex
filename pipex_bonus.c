@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 12:57:04 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/09 17:00:05 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:08:19 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_struct(t_pipex *pipex, char **argv, char **env, int argc)
 	pipex->counter = 2;
 }
 
-int	pipex_bonus(t_pipex pipex, int argc, char **argv)
+void	pipex_bonus(t_pipex pipex, int argc, char **argv)
 {
 	int	id1;
 	int	fd;
@@ -42,13 +42,13 @@ int	pipex_bonus(t_pipex pipex, int argc, char **argv)
 			exit(1);
 		if (id1 == 0)
 			child_process(pipex);
+		wait(0);
 		pipex.counter++;
 		pipex.cmd1 = argv[pipex.counter];
 		dup2(pipex.fd[0], STDIN_FILENO);
 		close(pipex.fd[1]);
 	}
 	parent_process(pipex);
-	return (1);
 }
 
 void	here_doc(t_pipex pipex, char *limiter)
@@ -74,7 +74,7 @@ void	pipex_bonus_here_doc(t_pipex pipex, int argc, char **argv)
 	int	fd;
 
 	pipex.cmd1 = argv[3];
-	fd = open(pipex.file2, O_WRONLY | O_CREAT);
+	fd = open(pipex.file2, O_WRONLY | O_CREAT, 0644);
 	if (argc <= 5 || fd == -1)
 		exit(1);
 	close(fd);

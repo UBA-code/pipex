@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:37:51 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/09 02:45:49 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/10 22:59:50 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void	child_process_doc(t_pipex pipex);
 void	ft_putstr(char *str);
 void	parent_process_doc(t_pipex pipex);
 void	loop_and_exit(char *limit);
+int		ft_error(char *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ybel-hac <ybel-hac@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 16:37:20 by ybel-hac          #+#    #+#             */
-/*   Updated: 2022/12/09 15:56:37 by ybel-hac         ###   ########.fr       */
+/*   Updated: 2022/12/10 23:01:44 by ybel-hac         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ int	main(int argc, char **argv, char **env)
 	if (id1 == 0)
 		child_process(pipex);
 	else
+	{
+		wait(0);
 		parent_process(pipex);
+	}
 }
