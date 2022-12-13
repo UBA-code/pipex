@@ -42,7 +42,7 @@ int	check_new_exicted(char *last)
 
 char	*get_next_line(int fd)
 {
-	static char		*last[OPEN_MAX];
+	static char		*last;
 	char			txt[BUFFER_SIZE + 1];
 	char			*line;
 	int				read_nb;
@@ -51,20 +51,20 @@ char	*get_next_line(int fd)
 		return (0);
 	line = NULL;
 	read_nb = 1;
-	while (read_nb && !check_new_exicted(last[fd]))
+	while (read_nb && !check_new_exicted(last))
 	{
 		read_nb = read(fd, txt, BUFFER_SIZE);
 		if (read_nb == -1)
-			return (free_func(&last[fd]));
+			return (free_func(&last));
 		txt[read_nb] = '\0';
-		if (read_nb == 0 && last[fd])
-			return (check_read_return(&last[fd], line));
+		if (read_nb == 0 && last)
+			return (check_read_return(&last, line));
 		if (read_nb == 0)
 			return (0);
-		last[fd] = ft_strjoin(last[fd], txt);
+		last = ft_strjoin(last, txt);
 	}
-	line = get_before_new(last[fd]);
-	last[fd] = get_after_new(last[fd]);
+	line = get_before_new(last);
+	last = get_after_new(last);
 	return (line);
 }
 
